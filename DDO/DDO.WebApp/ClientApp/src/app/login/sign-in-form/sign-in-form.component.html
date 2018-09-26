@@ -1,0 +1,22 @@
+<form class="form-signin">
+<div class="bg">
+<div class="container-fluid">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="assets/logo1.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            
+                <span id="reauth-email" class="reauth-email"></span>
+                    
+                <input type="email" id="inputEmail"  class="form-control" placeholder="&#xF007; &nbsp; Username" #userName required autofocus>
+               
+            
+                <input type="password" id="inputPassword" class="form-control" placeholder="&#xF084;  &nbsp;Password" #pwd required>
+             <br>
+                <button   class="btn btn-lg btn-primary btn-block btn-signin btnedit" (click)="doLogin(userName.value,pwd.value)"  type="submit">Sign in</button>
+            <!-- /form -->
+          
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+</div>
+</form>

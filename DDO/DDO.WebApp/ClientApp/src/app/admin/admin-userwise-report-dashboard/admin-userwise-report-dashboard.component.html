@@ -1,0 +1,94 @@
+<br>
+<br>
+<br>
+
+
+<div class = "row ui-g-12">
+      
+    <div class = "ui-g-4">
+      </div>
+
+    <div class = "ui-g-5">
+        <h2>Welcome To User Wise Reporting</h2>
+        <br>
+        <br>
+    </div>
+</div>
+
+
+<br>
+<br>
+<br>
+
+<div class ="ui-g-fluid">
+
+  
+  <div class = "row ui-g-12">
+      
+      <div class = "ui-g-3">
+        </div>
+
+      <div class = "ui-g-4">
+          <label class="userlabel" for="accounting">Select Accounting Unit</label>
+      </div>
+      
+      <div class="ui-g-5">
+          <p-dropdown [options]="usersSelectList" [(ngModel)]="userName" placeholder="Select"    [style]="{'width':'160px'}" filter="true">
+              <ng-template let-option pTemplate="item">
+                <div translate>{{option.label}}</div>
+              </ng-template>
+            </p-dropdown>
+      </div>
+    </div>
+
+
+
+    <div class="row ui-g-12">
+      <div class="ui-g-3">
+        </div>
+      <div class ="ui-g-4">
+        <label class="userlabel">Selected Month</label>
+      </div>
+      
+      <div class ="ui-g-5">
+        <p-dropdown [options]="month" [ngModel]="selectedMonth" (ngModelChange)="getReportingForSelectedMonth($event)" placeholder="Select A Month"  [style]="{'width':'160px'}" filter="true">
+          <ng-template let-option pTemplate="item">
+            <div translate>{{option.label}}</div>
+          </ng-template>
+        </p-dropdown> 
+      </div>
+      </div>
+
+      <div class="row ui-g-12">
+        <div class="ui-g-3">
+          </div>
+
+
+          <div class="ui-g-4">
+      <label class="userlabel "  >Period Of Return</label>
+      </div>
+      <div class ="ui-g-5">
+      <p-dropdown [options]="financialYearList" [(ngModel)]="financialYear"  placeholder="Select"  [style]="{'width':'160px'}" filter="true">
+        <ng-template let-option pTemplate="item">
+          <div translate>{{option.label}}</div>
+        </ng-template>
+      </p-dropdown> 
+      </div>
+      </div>
+      
+
+      <br>
+      <br>
+
+<div class="row ui-g-12">
+      <div class="ui-g-4"></div>
+      
+      <div class="ui-g-2">
+          <button pButton type="button" label=" Gstr-7" [routerLink]="['/admin/Gstr7',selectedMonth,financialYear,userName]" class="ui-button-success"></button>
+      </div>
+      <div class="ui-g-4">
+          <button pButton type="button" label=" Gstr-7(Consolidated)" [routerLink]="['/admin/Gstr7/Consolidated',selectedMonth,financialYear,userName]" class="ui-button-success"></button>
+      </div>
+      </div>
+      
+    

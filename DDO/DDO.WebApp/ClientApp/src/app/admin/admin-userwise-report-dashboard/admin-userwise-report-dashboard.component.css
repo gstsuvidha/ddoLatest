@@ -1,0 +1,36 @@
+.c{
+    margin-left: 22%;
+    margin-bottom: 30%;
+   
+}
+label.userlabel{
+    
+    font-size: 25px;
+    color: #c5b4c9;
+    padding-left: 13%!important;
+    padding-right: 5% !important;
+    margin-top: -11px;
+}
+.bt1{
+    margin-left: 6%;
+    margin-top: 4%;
+}
+h2{
+    
+        color: #08416d;
+        font-size: 30px;
+        font-weight: 700;
+        text-shadow: -2px 2px 5px #aa8fae;
+   
+}
+
+
+:host ::ng-deep.ui-button {
+        margin: 0;
+        border-radius: 9px;
+        color: #fefefe;
+        background-color: #0b9e38;
+        border: 1px solid #0b9e38;
+        font-size: 14px;
+        transition: background-color 0.2s;
+    }

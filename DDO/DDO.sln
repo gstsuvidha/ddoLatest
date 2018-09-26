@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDO.WebApp", "DDO.WebApp\DDO.WebApp.csproj", "{DA514F4F-D11C-44D6-A558-E66D6C21A6A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDO.Persistence", "DDO.Persistence\DDO.Persistence.csproj", "{2E52A151-1090-48E3-82E9-B2ED9376B3DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDO.Domain", "DDO.Domain\DDO.Domain.csproj", "{CD313C2C-1EC3-4707-92D0-993E0CA357DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA514F4F-D11C-44D6-A558-E66D6C21A6A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA514F4F-D11C-44D6-A558-E66D6C21A6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA514F4F-D11C-44D6-A558-E66D6C21A6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA514F4F-D11C-44D6-A558-E66D6C21A6A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E52A151-1090-48E3-82E9-B2ED9376B3DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E52A151-1090-48E3-82E9-B2ED9376B3DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E52A151-1090-48E3-82E9-B2ED9376B3DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E52A151-1090-48E3-82E9-B2ED9376B3DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD313C2C-1EC3-4707-92D0-993E0CA357DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD313C2C-1EC3-4707-92D0-993E0CA357DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD313C2C-1EC3-4707-92D0-993E0CA357DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD313C2C-1EC3-4707-92D0-993E0CA357DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49ED19FC-B755-4E57-BAED-26E100B9E531}
+	EndGlobalSection
+EndGlobal
