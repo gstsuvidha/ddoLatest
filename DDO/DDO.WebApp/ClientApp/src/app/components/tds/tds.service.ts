@@ -13,6 +13,7 @@ export class TdsService extends ServiceBase<Itds>{
         supplierId: 0,
         date:new Date(),
         placeOfSupply: "",
+        reference: "",
         amountPaid:0,
         cgstAmount: 0,
         sgstAmount: 0,

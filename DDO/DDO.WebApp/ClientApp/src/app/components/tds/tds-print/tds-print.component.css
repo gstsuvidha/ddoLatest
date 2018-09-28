@@ -1,0 +1,106 @@
+.container{
+    height:1120px !important;
+    width:820px !important;
+    background:silver;
+    }
+    div.container {
+        font: normal 12px Arial, Helvetica, Sans-serif;
+        background: white;
+        padding: 20px;
+        font-weight: medium;
+    }
+    textarea { border: 0; 
+        font: 14px Georgia, Serif; 
+        overflow: hidden; resize: none; 
+    }
+    .headerDown{
+        text-align: center;
+    }
+    .hup{
+         height: 25px; 
+         width: 100%; 
+         margin: 20px 0; 
+         background: #222; 
+         text-align: center; 
+         color: white; 
+         font: bold 15px;
+         font-family: Helvetica, Sans-Serif;
+          text-decoration: uppercase;
+          letter-spacing: 20px; padding: 8px 0px;
+    
+    }.hdown1
+    {
+        font-size: 25px ;
+        font-weight:600;
+        color :#234782;
+        text-align: center;
+    }
+    .hdown2
+    {
+        font-size:20px ;
+        color:black;
+        font-family:Arial Round Mt;
+        width:380px;
+        text-align: center;
+    }
+    .invoice-title h2, .invoice-title h3 {
+        display: inline-block;
+    }
+    
+    .table > tbody > tr > .no-line {
+        border-top: none;
+    }
+    
+    .table > thead > tr > .no-line {
+        border-bottom: none;
+    }
+    
+    .table > tbody > tr > .thick-line {
+        border-top: 2px solid;
+    }
+    table { border-collapse: collapse; 
+      min-width:650px;
+    min-height:40px;}
+    table td, table th {
+         border: 1px solid #dcdcdc;
+          padding: 5px; 
+          font-size: bold 12px;
+        }
+    button{
+        margin-left:320px;
+    }
+    .lefthead{
+        float: left; 
+        font-size: 12px;
+        text-align: left;
+        margin-left: 6px;
+    }
+    .righthead{
+        float:right;
+        font-size: 12px;
+     text-align: left;
+     margin-right:30px;
+    }
+    .panel-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 18px !important;
+        color: inherit;
+        text-align: center;
+        
+    }
+    .datestyl{
+    padding-right:20px;
+    }
+    h4{
+    font-weight:700;
+    font-size:12px;
+    }
+    #backbutton{
+        background-color: rgb(37, 49, 45);
+        color:white;
+    }
+    #printbutton{
+        background-color: aquamarine;
+        font-weight:700;
+    }

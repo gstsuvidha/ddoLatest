@@ -24,7 +24,7 @@ using Microsoft.EntityFrameworkCore;
 
         public override Task<Tds> GetAsync(object id, string accountingUnitId)
         {
-            return _context.Tdss.SingleOrDefaultAsync(c => c.Id == (int)id
+            return _context.Tdss.Include(s => s.Supplier).SingleOrDefaultAsync(c => c.Id == (int)id
                                                                 && c.AccountingUnitId == accountingUnitId);
         }
     }
