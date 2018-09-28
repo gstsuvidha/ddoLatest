@@ -69,7 +69,17 @@ namespace DDO.WebApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-             
+              using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                if (!serviceScope.ServiceProvider.GetService<ApplicationDbContext>().AllMigrationsApplied())
+                {
+                    serviceScope.ServiceProvider.GetService<ApplicationDbContext>().Database.Migrate();
+                }
+
+                // serviceScope.ServiceProvider.GetService<ApplicationDbContext>().EnsureSeeded();
+
+
+            }
 
 
             if (env.IsDevelopment())
