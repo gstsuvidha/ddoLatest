@@ -16,6 +16,7 @@ namespace DDO.WebApp.Mappings
             CreateMap<Supplier, SaveSupplierResource>();
             CreateMap<Tds, TdsResource>();
             CreateMap<Tds, SaveTdsResource>();
+            CreateMap<Supplier, SupplierValueResource>();
             CreateMap<Supplier, KeyValuePairResource>();
 
          

@@ -1,4 +1,5 @@
 using System;
+using DDO.WebApp.Mappings;
 
 namespace DDO.WebApp.Api.SupplierApi
 {
@@ -16,7 +17,7 @@ namespace DDO.WebApp.Api.SupplierApi
         public double SgstAmount { get; set; }
         public double IgstAmount { get; set; }
         public double TdsAmount  { get; set; }
-
+        public SupplierValueResource Supplier { get; set; }
         public string AccountingUnitId {get; set;}
     }
 }
