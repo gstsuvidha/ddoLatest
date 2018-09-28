@@ -71,7 +71,7 @@ namespace DDO.WebApp
         {
               using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                if (!serviceScope.ServiceProvider.GetService<ApplicationDbContext>().AllMigrationsApplied())
+               
                 {
                     serviceScope.ServiceProvider.GetService<ApplicationDbContext>().Database.Migrate();
                 }
