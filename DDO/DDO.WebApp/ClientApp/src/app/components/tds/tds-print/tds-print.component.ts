@@ -122,7 +122,7 @@ this._router.navigate(['authenticated/tds']);
             min-height:40px;}
 
             table td, table th {
-                 border: 1px solid #dcdcdc;
+                 border: 2px solid black;
                   padding: 5px; 
                   padding-left:3px;
                   font-size: bold 12px;
