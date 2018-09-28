@@ -22,11 +22,11 @@
           </div>
       </div>
 
-      <div class="ui-g-5" style="margin-top: 1px">
+    <!--  <div class="ui-g-5" style="margin-top: 1px">
         <label for="Gstin">GSTIN</label>
-      </div>
+      </div> -->
 
-      <div class="ui-g-7" style="margin-top: 1px">
+  <!--    <div class="ui-g-7" style="margin-top: 1px">
         <input type="text" pInputText formControlName="gstin"/>
         <br />
         <div class="ui-message ui-messages-error ui-corner-all" *ngIf="userprofileForm.get('gstin').touched && userprofileForm.get('gstin').invalid" style="width:160px">
@@ -39,11 +39,11 @@
             Invalid Gstin
           </div>
           </div>
-      </div>
+      </div>-->
 
 
       <div class="ui-g-5" style="margin-top: 1px">
-        <label for="Gstin">TDS GSTIN</label>
+        <label for="Gstin">Deductor GSTIN</label>
       </div>
 
       <div class="ui-g-7" style="margin-top: 1px">
@@ -52,14 +52,22 @@
         <div class="ui-message ui-messages-error ui-corner-all" *ngIf="userprofileForm.get('tdsGstin').touched && userprofileForm.get('tdsGstin').invalid" style="width:160px">
           <div class="ui-message ui-messages-error ui-corner-all" *ngIf="userprofileForm.get('tdsGstin').hasError('required')">
             <i class="fa fa-fw fa-close"></i>
-            TDS Gstin is required
+           Deductor Gstin is required
           </div>
           <div class="ui-message ui-messages-error ui-corner-all" *ngIf="userprofileForm.get('tdsGstin').hasError('pattern')">
             <i class="fa fa-fw fa-close"></i>
-            Invalid TDS Gstin
+            Invalid Deductor Gstin
           </div>
           </div>
-      </div>
+      </div> 
+
+      <!-- <div class="ui-g-5" style="margin-top: 1px">
+          <label for="Pan">Coperation/Department</label>
+        </div>
+  
+        <div class="ui-g-7" style="margin-top: 1px">
+          <input type="text" pInputText formControlName="coDepartment"/>
+        </div> -->
 
       <div class="ui-g-5" style="margin-top: 1px">
         <label for="Pan">Pan</label>
@@ -68,11 +76,11 @@
       <div class="ui-g-7" style="margin-top: 1px">
         <input type="text" pInputText formControlName="pan"/>
       </div>
-
+<!--
       <div class="ui-g-5" style="margin-top: 1px">
         <label for="registrationtype">Registration type</label>
-      </div>
-
+      </div>-->
+<!--
       <div class="ui-g-7" style="margin-top: 1px">
         <p-dropdown [options]="registrationType" formControlName="registrationType"  placeholder="Select"  [style]="{'width':'160px'}" filter="true">
           <ng-template let-option pTemplate="item">
@@ -86,7 +94,7 @@
             Registration Type is required
           </div>
          </div> 
-      </div>
+      </div>-->
 
       <div class="ui-g-5" style="margin-top: 1px">
         <label for="email">Email_id</label>
@@ -167,18 +175,18 @@
         </p-dropdown>
       </div>  
   
-
+<!--
       <div class="ui-g-5"  style="margin-top: 1px">
         <label for="Turnover for the previous year">Turnover for the previous year</label>
-      </div>
-      <div class="ui-g-7" style="margin-top: 1px">
+      </div>-->
+   <!--   <div class="ui-g-7" style="margin-top: 1px">
         <input type="text" pInputText formControlName="turnOver" />
-      </div>
+      </div> -->
 
-      <div class="ui-g-5" style="margin-top: 1px">
+     <!-- <div class="ui-g-5" style="margin-top: 1px">
         <label for="Turnover for the quarter">Turnover for the quarter</label>
-      </div>
-      <div class="ui-g-7" style="margin-top: 1px">
+      </div>-->
+    <!--  <div class="ui-g-7" style="margin-top: 1px">
         <input type="text" pInputText formControlName="currentGrossTurnOver"/>
         <br />
         <div class="ui-message ui-messages-error ui-corner-all" *ngIf="userprofileForm.get('currentGrossTurnOver').touched && userprofileForm.get('currentGrossTurnOver').invalid" style="width:160px">
@@ -187,7 +195,7 @@
             Turnover for the quarter is required
           </div>
           </div>
-      </div>
+      </div> -->
 
       <div class="ui-g-5" style="margin-top: 1px">
         <label for="bankName">Bank Name</label>
