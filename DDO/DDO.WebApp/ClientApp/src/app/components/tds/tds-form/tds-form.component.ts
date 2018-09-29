@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Itds } from '../Itds';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import {MessageService} from 'primeng/api';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import { SelectItem, Message } from 'primeng/api';
 import { TdsService } from '../tds.service';
@@ -70,16 +71,16 @@ export class TdsFormComponent implements OnInit {
     });
 
     this.tdsForm = this.fb.group({
-      supplierId: [0, ],
+      supplierId: [0,[Validators.required] ],
        placeOfSupply:  ['', [Validators.required]],
        date:[new Date()],
-      amountPaid: [0 ],
+      amountPaid: [0   ,[Validators.required]],
       //  customerOpeningDate: [new Date(), [Validators.required]],
        cgstAmount: [0] ,
       sgstAmount: [0],
        igstAmount: [0],
        tdsAmount: [0],
-       netAmount: [0]
+       netAmount: [0,[Validators.required]]
       //  openBalance: [0,Validators.required],
   });
 
