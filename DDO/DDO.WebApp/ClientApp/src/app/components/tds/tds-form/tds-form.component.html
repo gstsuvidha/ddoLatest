@@ -68,14 +68,14 @@
             <label style="margin-top:5px;"  for="amountPaid">Amount Paid <br>(Exclusive Of GST)</label>
             </div>
             <div class="ui-g-7">
-              <input  onlyNumber="true" pInputText type="number" id="amountPaid" formControlName="amountPaid" style="width:160px" onlyNumber="true" >
+              <input  pKeyFilter="num"  pInputText type="text" id="amountPaid" formControlName="amountPaid" style="width:160px" onlyNumber="true" >
     </div>
     
  <div class="ui-g-5">
         <label style="margin-top:5px;"  *ngIf="isIntraState"for="cgstAmount">CGST@1%</label>
         </div>
         <div class="ui-g-7">
-          <input  onlynumber="true" pInputText type="text" *ngIf="isIntraState" id="cgstAmount" formControlName="cgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
+          <input   pKeyFilter="num" pInputText type="text" *ngIf="isIntraState" id="cgstAmount" formControlName="cgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
           
         </div>
 

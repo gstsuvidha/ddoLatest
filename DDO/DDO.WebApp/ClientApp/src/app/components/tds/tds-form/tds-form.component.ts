@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Itds } from '../Itds';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-
+import {KeyFilterModule} from 'primeng/keyfilter';
 import { SelectItem, Message } from 'primeng/api';
 import { TdsService } from '../tds.service';
 import { Router, ActivatedRoute } from '@angular/router';
