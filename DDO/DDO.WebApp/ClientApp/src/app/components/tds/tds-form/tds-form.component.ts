@@ -79,6 +79,7 @@ export class TdsFormComponent implements OnInit {
        cgstAmount: [0] ,
       sgstAmount: [0],
        igstAmount: [0],
+       reference: [''],
        tdsAmount: [0],
        netAmount: [0,[Validators.required]]
       //  openBalance: [0,Validators.required],
@@ -228,7 +229,7 @@ private onTdsRetrieved(tds:Itds): void{
         igstAmount: this.tds.igstAmount,
         tdsAmount: this.tds.tdsAmount,
         netAmount: this.tds.netAmount,
-        
+        reference: this.tds.reference,
 
     
 });
