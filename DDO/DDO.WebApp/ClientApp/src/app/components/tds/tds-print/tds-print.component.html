@@ -1,3 +1,153 @@
-<p>
-  tds-print works!
-</p>
+<!-- {{tds?.placeOfSupply}}-->
+<div class="navtop">
+  <div class="row">
+      <div class="col-xs-4">
+           
+             <button type="button" class="btn btn-dark" id="backbutton" (click)="tdsList()"> &larr;BACK</button>
+</div>
+<div class="col-xs-8">
+             <button class="btn btn-sucess" id="printbutton" (click)="print()">
+                     <i class="fa fa-print" aria-hidden="true"></i>
+                      PRINT</button>
+      </div>
+  </div>
+
+<div id="print-section">
+    
+<div class="container container-fluid">
+     <div class="row">
+             <div class="col-xs-12">
+ <div class="header">
+         <textarea  readonly="true" class="hup" style="background:black;">&nbsp;TDS SLIP</textarea>
+    <br>
+    </div>
+    <div class="headerDown">
+    <textarea  readonly="true" class="hdown1"> GST SUVIDHA</textarea>
+    <!--<textarea class="hdown1">{{userProfile?.coDepartment}}</textarea>-->
+    <br>
+    <span class="hdown2">{{userProfile?.address}} </span>
+ </div><!--header part end-->
+
+ <div class="row"><!--addres row start-->
+         <div class="col-xs-6">
+           <address  class="lefthead">
+                 <strong>DEDUCTOR DETAILS:-</strong><br/>
+               <div class="row">
+              <div class="col-xs-3 sp"><b>Name</b></div>
+              <div class="col-xs-9 sp">:&nbsp;{{userProfile?.businessName}}<br></div>
+             </div>
+             <div class="row">
+              <div class="col-xs-3 sp"><b>GSTIN</b></div>
+              <div class="col-xs-9 sp">:&nbsp;{{userProfile?.tdsGstin}}<br></div>
+             
+             </div>
+           </address>
+         </div>
+         <!--address left div end-->
+         <!--address right div start-->
+         <div class="col-xs-6 text-right">
+         <address class="righthead">
+
+                       <div class="row">
+                                 <div class="col-xs-2 sp sdate"><b>Date</b></div>
+                                 <div class="col-xs-8 sp pdate">:{{tds?.date|date: 'dd/mm/yyyy'}}&nbsp;
+                                     <br></div>
+                                </div>
+
+                                <div class="row">
+                                 <div class="col-xs-12 sp">
+                                    <span><b>Place Of Supply</b></span> 
+                                    <span class="psup">:{{tds?.placeOfSupply}}</span>
+                                 </div>
+                                
+                                
+                                </div>
+
+<!--
+              <span class="datestyl"><b>Date</b></span> <span class="pdate">:{{tds?.date|date: 'dd/MM/yyyy'}}</span><br>
+                 <b>Place of supply</b>:{{tds?.placeOfSupply}}<br>-->
+           
+         </address>
+             </div><!--address right end-->
+         </div><!--address row end-->
+         <!--address row secondory strat-->
+         <div class="row">
+                 <div class="col-xs-6">
+                     <address  class="lefthead">
+                         <strong>SUPPLIER DETAILS:</strong><br>
+                         <b>Name:</b> 
+                        {{tds?.supplier?.name}}<br>
+                         <b>Address:</b> 
+                         {{tds?.supplier?.address}}<br>
+                        <b>GSTIN:</b>
+                        {{tds?.supplier?.gstin}}<br>
+                       
+                     </address>
+                 </div>
+               
+             </div>  <!--address row secondory end-->
+             </div><!--div col end-->
+             </div><!--div 1st row end-->
+<!--div second row start for table-->
+<div class="row">
+   <div class="col-md-12">
+     <div class="panel panel-default">
+       <div class="panel-heading">
+         <h3 class="panel-title"><strong>Deduction Detail</strong></h3>
+       </div>
+       <div class="panel-body">
+         <div class="table-responsive">
+           <table class="table table-condensed">
+             <thead>
+                             <tr>
+                   <td><strong>Amount Paid</strong></td>
+                   <td class="text-center"><strong>IGST@2</strong></td>
+                   <td class="text-center"><strong>CGST@1</strong></td>
+                   <td class="text-center"><strong>SGST@1</strong></td>
+                                 <td class="text-right"><strong>TotalTDS</strong></td>
+                                 <td class="text-right"><strong>Net Amount</strong></td>
+                             </tr>
+             </thead>
+             <tbody>
+               <!-- foreach ($order->lineItems as $line) or some such thing here -->
+               <tr>
+                 <td>{{tds?.amountPaid}}</td>
+                 <td class="text-center">{{tds?.igstAmount}}</td>
+                 <td class="text-center">{{tds?.cgstAmount}}</td>
+                 <td class="text-center">{{tds?.sgstAmount}}</td>
+                                 <td class="text-right">{{tds?.tdsAmount}}</td>
+                                 <td class="text-right">{{tds?.netAmount}}</td>
+               </tr>
+                           
+             
+             </tbody>
+           </table>
+         </div>
+             </div>
+            
+               
+             
+         </div>
+       <!--  <button class="btn bnt-primary" id="printbutton" (click)="print()">PRINT</button>-->
+   </div>
+ </div>
+ 
+ <div class="row">
+<div class="col-xs-8 text-left ref">
+<span> <strong > Reference:</strong></span>
+<span>this has been terminated at all djfk</span>
+</div>
+ </div>
+ <div class="row">
+     <div class="col-xs-7"></div>
+         <div class="col-xs-5  text-right">
+             <strong class="authorised"><h4>Authorised Signature:</h4></strong>
+         </div>
+             </div>
+
+<!--div secon row end for table-->
+
+</div><!--CONTAINER DIV END-->
+</div>
+</div>
+

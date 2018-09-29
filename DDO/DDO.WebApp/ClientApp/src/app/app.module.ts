@@ -26,7 +26,7 @@ import { TokenInterceptor } from './login/token-interceptor';
 import { Gstr7Service } from './admin/gstr7.service';
 import { AdminModule } from './admin/admin.module';
 import { TdsPrintComponent } from './components/tds/tds-print/tds-print.component';
-
+import {KeyFilterModule} from 'primeng/keyfilter';
 export function tokenGetter() {
   return localStorage.getItem("token");
 }
@@ -59,7 +59,7 @@ export function tokenGetter() {
     HttpClientModule,
     AdminModule,
     ReactiveFormsModule,
-
+    KeyFilterModule,
     
     
     RouterModule.forRoot([
@@ -83,7 +83,7 @@ export function tokenGetter() {
       {path: 'tds/:id', component: TdsFormComponent },
       {path: 'tds-print/:id', component: TdsPrintComponent },
       {path: 'dash-board', component: DashboardComponent },
-      { path: 'user-profile/detail', component: UserProfileComponent},
+      { path: 'user-profile/:action', component: UserProfileComponent},
        ]
       
       

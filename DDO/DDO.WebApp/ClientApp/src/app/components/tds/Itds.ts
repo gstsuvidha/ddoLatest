@@ -3,6 +3,7 @@ export interface Itds {
     id:number;
     supplierId: number;
     placeOfSupply: string;
+    reference: string;
     amountPaid:number;
     cgstAmount: number;
     sgstAmount: number;
@@ -10,6 +11,7 @@ export interface Itds {
     tdsAmount: number;
     netAmount: number;
     date: Date;
+    
 }
 
 

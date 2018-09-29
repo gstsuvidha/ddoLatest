@@ -24,7 +24,8 @@
       <th style="width:22%">Place Of Supply</th>
       <th style="width:22%">Amount Paid</th>
       <th style="width:22%">TDS</th>
-      <th>Delete</th>
+      <th style="width:5%">PRINT</th>
+      <th style="width:5%">Delete</th>
 
     </tr>
   </ng-template>
@@ -35,6 +36,9 @@
        <td>{{a.placeOfSupply}}</td>
       <td>{{a.amountPaid}}</td>
       <td>{{a.tdsAmount}}</td>
+      <td>
+          <button type="button" style="background: #2d8227bf; color:white;" pButton icon="fa fa-fw fa-print" (click)="tdsPrint(a)"></button>
+        </td>
       <td>
         <button type="button" pButton icon="fa fa-fw fa-trash" (click)="showDialogToDelete(a)"></button>
       </td>

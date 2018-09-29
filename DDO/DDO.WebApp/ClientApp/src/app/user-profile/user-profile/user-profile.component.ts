@@ -51,20 +51,20 @@ export class UserProfileComponent implements OnInit {
     this.userprofileForm = this.fb.group({
       id: '',
       businessName: ['', [Validators.required, Validators.minLength(2)]],
-      gstin: ['', [Validators.required, Validators.pattern('[0-9]{2}[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}[1-9A-Za-z]{1}[Z]{1}[0-9a-zA-Z]{1}')]],
+      gstin: [''],
       tdsGstin: ['', [Validators.required, Validators.pattern('[0-9]{2}[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}[1-9A-Za-z]{1}[Z]{1}[0-9a-zA-Z]{1}')]],
       email: ['', [Validators.required, Validators.email]],
       address: [''],
       contactNumber: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
-      turnOver: ['', [Validators.required]],
+      turnOver: [''],
       bankAccountName: [''],
       bankAccountNumber: [''],
       ifscCode: [''],
       placeOfSupply:[''],
-      registrationType: ['',Validators.required ],
-      selectedYear:['',Validators.required],
-      termsAndCondition: ['',[]],
-      currentGrossTurnOver: ['', [Validators.required]],
+      registrationType: ['' ],
+      selectedYear:[''],
+      termsAndCondition: [''],
+      currentGrossTurnOver: [''],
       pan : ['']
   });
 
@@ -74,12 +74,13 @@ export class UserProfileComponent implements OnInit {
     this.userprofileForm.patchValue({
         id: this.userprofile.id,
         businessName: this.userprofile.businessName,
-        gstin: this.userprofile.gstin,
+       
         tdsGstin: this.userprofile.tdsGstin,
+        //coDepartment:this.userprofile.coDepartment,
         email: this.userprofile.email,
         address: this.userprofile.address,
         contactNumber: this.userprofile.contactNumber,
-        turnOver: this.userprofile.turnOver,
+        
         bankAccountName: this.userprofile.bankAccountName,
         bankAccountNumber: this.userprofile.bankAccountNumber,
         ifscCode: this.userprofile.ifscCode,
@@ -89,7 +90,7 @@ export class UserProfileComponent implements OnInit {
         selectedYear: this.userprofile.selectedYear,
         termsAndCondition: this.userprofile.termsAndCondition,
         
-        currentGrossTurnOver: this.userprofile.currentGrossTurnOver,
+        
         pan : this.userprofile.pan
     });
         this.route.params.subscribe(params => {

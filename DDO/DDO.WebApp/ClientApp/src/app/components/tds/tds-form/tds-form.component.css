@@ -1,0 +1,14 @@
+:host ::ng-deep.ui-calendar.ui-calendar-w-btn .ui-inputtext {
+    width: 30px !important;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0 none;
+}
+:host ::ng-deep.ui-inputtext:enabled:hover:not(.ui-state-error) {
+    border-color: #212121;
+    width: 160px;
+}
+:host ::ng-deep.ui-inputtext {
+  /*  border-color: #212121;*/
+    width: 160px;
+}
