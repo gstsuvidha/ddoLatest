@@ -32,6 +32,7 @@
               <div translate>{{option.label}}</div>
             </ng-template>
           </p-dropdown>
+         
                 </div>
 
      
@@ -68,8 +69,14 @@
             <label style="margin-top:5px;"  for="amountPaid">Amount Paid <br>(Exclusive Of GST)</label>
             </div>
             <div class="ui-g-7">
-              <input  pKeyFilter="num"  pInputText type="text" id="amountPaid" formControlName="amountPaid" style="width:160px" onlyNumber="true" >
-    </div>
+           
+             <input  pKeyFilter="num" class="ng-dirty ng-invalid ng-touched" pInputText type="text" id="amountPaid" formControlName="amountPaid" style="width:160px" onlyNumber="true" >
+            
+            <span>
+                  &nbsp;<p-message severity="error" text="Required" *ngIf="!tdsForm.controls['amountPaid'].valid&&tdsForm.controls['amountPaid'].dirty"></p-message>
+            </span>
+          
+            </div>
     
  <div class="ui-g-5">
         <label style="margin-top:5px;"  *ngIf="isIntraState"for="cgstAmount">CGST@1%</label>
@@ -106,7 +113,9 @@
         </div>
         <div class="ui-g-7">
           <input pInputText type="text"  pKeyFilter="num" id="netAmount" formControlName="netAmount" style="width:160px" >
-          
+          <span>
+              &nbsp;<p-message severity="error" text="Required" *ngIf="!tdsForm.controls['netAmount'].valid&&tdsForm.controls['netAmount'].dirty"></p-message>
+        </span>
         </div>
 
 
@@ -114,7 +123,7 @@
     
     <p-footer>
       <div class="ui-dialog-buttonpane ui-helper-clearfix">
-          <button type="button" pButton icon="fa fa-fw fa-check" (click)="saveTds()" (onclick)="disable()" [disabled]="tdsForm.invalid"label="Save"></button>
+          <button type="button" pButton icon="fa fa-fw fa-check" (click)="saveTds()" (onclick)="disable()" [disabled]="tdsForm.invalid" label="Save & Next"></button>
       </div>
      
      
