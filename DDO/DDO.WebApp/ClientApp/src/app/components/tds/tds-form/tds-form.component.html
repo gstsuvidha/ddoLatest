@@ -83,21 +83,21 @@
           <label style="margin-top:5px;" *ngIf="isIntraState" for="sgstAmount">SGST@1%</label>
           </div>
           <div class="ui-g-7">
-            <input pInputText type="text"  onlynumber="true" *ngIf="isIntraState" id="sgstAmount" formControlName="sgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
+            <input pInputText type="text"  pKeyFilter="num"  *ngIf="isIntraState" id="sgstAmount" formControlName="sgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
 </div>
             
         <div class="ui-g-5">
         <label style="margin-top:5px;"  *ngIf="!isIntraState" for="igstAmount">IGST@2%</label>
         </div>
         <div class="ui-g-7">
-          <input pInputText type="text"   onlynumber="true" *ngIf="!isIntraState" id="igstAmount" formControlName="igstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
+          <input pInputText type="text"  pKeyFilter="num" *ngIf="!isIntraState" id="igstAmount" formControlName="igstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
           
         </div>
         <div class="ui-g-5">
         <label style="margin-top:5px;"  for="tdsAmount">Total TDS</label>
         </div>
         <div class="ui-g-7">
-          <input pInputText type="text"  onlynumber="true"  id="tdsAmount" formControlName="tdsAmount" style="width:160px" onlyNumber="true" readOnly="true">
+          <input pInputText type="text"  id="tdsAmount" formControlName="tdsAmount" style="width:160px"  pKeyFilter="num" readOnly="true">
           
         </div>
   
@@ -105,7 +105,7 @@
         <label style="margin-top:5px;"  for="netAmount">Total Net Amount</label>
         </div>
         <div class="ui-g-7">
-          <input pInputText type="text"  onlynumber="true" id="netAmount" formControlName="netAmount" style="width:160px" onlyNumber="true" >
+          <input pInputText type="text"  pKeyFilter="num" id="netAmount" formControlName="netAmount" style="width:160px" >
           
         </div>
 
