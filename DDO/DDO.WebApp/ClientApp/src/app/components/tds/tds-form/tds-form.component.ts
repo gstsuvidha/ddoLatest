@@ -23,6 +23,7 @@ export class TdsFormComponent implements OnInit {
     supplierSelectList: SelectItem[];
     isIntraState: boolean = true;
     accountingUnitPlaceOfSupply: number;
+    printId : number;
 
 
   private _id: number;
@@ -64,6 +65,9 @@ export class TdsFormComponent implements OnInit {
 
   ngOnInit() {
 
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+    });
 
     this.tdsForm = this.fb.group({
       supplierId: [0, ],
@@ -99,9 +103,7 @@ export class TdsFormComponent implements OnInit {
   // || acc.nature.toString() == Nature[Nature.Bank]));
 
 
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-    });
+    
 
     
    
@@ -158,7 +160,7 @@ checkSupplyType(event) {
 
  tdsCalculate(){
  let amountPaid = this.tdsForm.get('amountPaid').value;
- console.log(amountPaid);
+ 
  let cgstAmount: number;
  let sgstAmount: number;
  let igstAmount: number;
@@ -257,7 +259,15 @@ saveTds(): void {
 
       let tdsToSave = Object.assign({}, this.tds, this.tdsForm.value);
       this.busy = true;
-      this.tdsService.save(tdsToSave, this.id).subscribe(()=> this.onSaveComplete(this.id));
+      this.tdsService.save(tdsToSave, this.id).subscribe(res => {
+        this.tds = res;
+        this.printId= this.tds.id;
+        console.log(this.printId);
+        this.router.navigate(['authenticated/tds-print',this.printId])
+      },()=> {
+        this.onSaveComplete(this.printId);
+        console.log(this.id);
+      });
       
            }
 
@@ -269,6 +279,8 @@ saveTds(): void {
 }
 
 private onSaveComplete(newId: number):void{
+  
+  
   const displayMsg = this.id == 0 ? 'Saved' : 'Updated';
   this.msgs = [];
   this.msgs.push({
