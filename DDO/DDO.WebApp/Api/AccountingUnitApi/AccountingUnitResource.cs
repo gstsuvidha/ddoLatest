@@ -4,6 +4,7 @@ namespace DDO.WebApp.Api.AccountingUnitApi
     {
         public string Id { get; set; }
         public string BusinessName { get; set; }
+        public string CoDepartment { get; set; }
         public string PlaceOfSupply { get; set; }
         public string Gstin { get; set; }
         public string TdsGstin { get; set; }

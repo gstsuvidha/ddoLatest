@@ -2,6 +2,7 @@ export interface Iuserprofile {
     id: number,
     businessName: string,
     gstin: string,
+    coDepartment: string,
     tdsGstin: string,
     address: string,
     email: string,

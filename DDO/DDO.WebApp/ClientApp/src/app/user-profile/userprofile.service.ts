@@ -15,6 +15,7 @@ export class UserProfileService extends ServiceBase<Iuserprofile>{
     return{
               id: 0,
               businessName: "",
+              coDepartment: "",
               gstin: "",
               tdsGstin: "",
               address: "",

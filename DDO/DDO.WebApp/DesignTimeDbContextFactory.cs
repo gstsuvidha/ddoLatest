@@ -13,6 +13,7 @@ namespace BiharEnergy.WebApp
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
+                // .AddJsonFile("appsettings.production.json")
                 .Build();
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
             var connectionString = configuration.GetConnectionString("Default");

@@ -8,6 +8,7 @@ namespace DDO.WebApp.Api.SupplierApi
         public int Id { get; set; }
 
         public int SupplierId { get; set; }
+        public string Reference { get; set; }
 
         public DateTime Date { get; set; }
         public string PlaceOfSupply { get; set; }

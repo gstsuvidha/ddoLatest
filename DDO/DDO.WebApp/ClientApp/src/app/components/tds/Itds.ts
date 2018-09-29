@@ -12,6 +12,7 @@ export interface Itds {
     netAmount: number;
     date: Date;
     
+    
 }
 
 

@@ -51,6 +51,7 @@ export class UserProfileComponent implements OnInit {
     this.userprofileForm = this.fb.group({
       id: '',
       businessName: ['', [Validators.required, Validators.minLength(2)]],
+      coDepartment: ['', [Validators.required, Validators.minLength(2)]],
       gstin: [''],
       tdsGstin: ['', [Validators.required, Validators.pattern('[0-9]{2}[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}[1-9A-Za-z]{1}[Z]{1}[0-9a-zA-Z]{1}')]],
       email: ['', [Validators.required, Validators.email]],
@@ -76,7 +77,7 @@ export class UserProfileComponent implements OnInit {
         businessName: this.userprofile.businessName,
        
         tdsGstin: this.userprofile.tdsGstin,
-        //coDepartment:this.userprofile.coDepartment,
+        coDepartment:this.userprofile.coDepartment,
         email: this.userprofile.email,
         address: this.userprofile.address,
         contactNumber: this.userprofile.contactNumber,
