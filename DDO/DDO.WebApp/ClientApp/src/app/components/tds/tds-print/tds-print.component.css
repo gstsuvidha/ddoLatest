@@ -101,6 +101,11 @@
         color:white;
     }
     #printbutton{
-        background-color: aquamarine;
+        background-color:#2d8227bf;
+        color:white;
         font-weight:700;
     }
+    .sp{
+        display:inline-block;
+        padding-right:4px;
+      }

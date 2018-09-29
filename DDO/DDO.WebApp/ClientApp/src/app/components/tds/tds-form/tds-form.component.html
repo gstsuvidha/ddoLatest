@@ -24,7 +24,7 @@
 
 
         <div class="ui-g-5">
-       <label style="margin-top:5px;" for="name" autofocus>Name</label>
+       <label style="margin-top:5px;" for="name" autofocus required>Name</label>
       </div>
         <div class="ui-g-7">
           <p-dropdown [options]="supplierSelectList"  formControlName="supplierId" placeholder="Select" [style]="{'width':'160px'}" filter="true" (onChange)="checkSupplyType($event)">
@@ -68,14 +68,14 @@
             <label style="margin-top:5px;"  for="amountPaid">Amount Paid <br>(Exclusive Of GST)</label>
             </div>
             <div class="ui-g-7">
-              <input pInputText type="text"  id="amountPaid" formControlName="amountPaid" style="width:160px" onlyNumber="true" >
+              <input  pKeyFilter="num"  pInputText type="text" id="amountPaid" formControlName="amountPaid" style="width:160px" onlyNumber="true" >
     </div>
     
  <div class="ui-g-5">
         <label style="margin-top:5px;"  *ngIf="isIntraState"for="cgstAmount">CGST@1%</label>
         </div>
         <div class="ui-g-7">
-          <input pInputText type="text" *ngIf="isIntraState" id="cgstAmount" formControlName="cgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
+          <input   pKeyFilter="num" pInputText type="text" *ngIf="isIntraState" id="cgstAmount" formControlName="cgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
           
         </div>
 
@@ -83,21 +83,21 @@
           <label style="margin-top:5px;" *ngIf="isIntraState" for="sgstAmount">SGST@1%</label>
           </div>
           <div class="ui-g-7">
-            <input pInputText type="text" *ngIf="isIntraState" id="sgstAmount" formControlName="sgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
+            <input pInputText type="text"  pKeyFilter="num"  *ngIf="isIntraState" id="sgstAmount" formControlName="sgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
 </div>
             
         <div class="ui-g-5">
         <label style="margin-top:5px;"  *ngIf="!isIntraState" for="igstAmount">IGST@2%</label>
         </div>
         <div class="ui-g-7">
-          <input pInputText type="text" *ngIf="!isIntraState" id="igstAmount" formControlName="igstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
+          <input pInputText type="text"  pKeyFilter="num" *ngIf="!isIntraState" id="igstAmount" formControlName="igstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
           
         </div>
         <div class="ui-g-5">
         <label style="margin-top:5px;"  for="tdsAmount">Total TDS</label>
         </div>
         <div class="ui-g-7">
-          <input pInputText type="text"  id="tdsAmount" formControlName="tdsAmount" style="width:160px" onlyNumber="true" readOnly="true">
+          <input pInputText type="text"  id="tdsAmount" formControlName="tdsAmount" style="width:160px"  pKeyFilter="num" readOnly="true">
           
         </div>
   
@@ -105,7 +105,7 @@
         <label style="margin-top:5px;"  for="netAmount">Total Net Amount</label>
         </div>
         <div class="ui-g-7">
-          <input pInputText type="text"  id="netAmount" formControlName="netAmount" style="width:160px" onlyNumber="true" >
+          <input pInputText type="text"  pKeyFilter="num" id="netAmount" formControlName="netAmount" style="width:160px" >
           
         </div>
 
