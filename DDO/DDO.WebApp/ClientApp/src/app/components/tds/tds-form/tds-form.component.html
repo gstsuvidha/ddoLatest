@@ -16,8 +16,8 @@
           [responsive]="true" 
           showEffect="fade" 
           [modal]="true" 
-          [closable]="true" 
-          (onHide) = "this.closeDialog.emit(null)"
+          [closable]="false" 
+          
           [width]="500" >
     <div class="ui-g">
       
@@ -115,6 +115,7 @@
     <p-footer>
       <div class="ui-dialog-buttonpane ui-helper-clearfix">
           <button type="button" pButton icon="fa fa-fw fa-check" (click)="saveTds()" (onclick)="disable()" [disabled]="tdsForm.invalid"label="Save"></button>
+          <button type="button" pButton (click)="back()" label = "Back"></button>
       </div>
      
      

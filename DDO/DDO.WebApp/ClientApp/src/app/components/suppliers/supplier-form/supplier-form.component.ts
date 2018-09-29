@@ -15,23 +15,24 @@ import { StateList } from '../../../state-list';
 })
 export class SupplierFormComponent implements OnInit {
 
-  private _id: number;
-  get id(): number{
-    return this._id;
-  }
+  id : number;
+//   private _id: number;
+//   get id(): number{
+//     return this._id;
+//   }
 
- @Input()
-  set id(value: number){
-      this._id = value;
+//  @Input()
+//   set id(value: number){
+//       this._id = value;
 
-      if(this._id !=null){
-        console.log(this._id)
-        this.getSupplier(this._id);
+//       if(this._id !=null){
+//         console.log(this._id)
+//         this.getSupplier(this._id);
         
-      }
-  }
-  @Output() closeDialog:EventEmitter<any> = new EventEmitter<any>();
-  @Output() refreshList:EventEmitter<boolean> = new EventEmitter<boolean>();
+//       }
+//   }
+//   @Output() closeDialog:EventEmitter<any> = new EventEmitter<any>();
+//   @Output() refreshList:EventEmitter<boolean> = new EventEmitter<boolean>();
  
   pageTitle;
   supplier:ISupplier;
@@ -52,6 +53,7 @@ export class SupplierFormComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
+      this.getSupplier(this.id);
     });
      
     this.registrationType = [
@@ -78,8 +80,8 @@ export class SupplierFormComponent implements OnInit {
   });
 }
 
-private getSupplier(this_id):void{
-  this.supplierService.getOne(this.id)
+private getSupplier(id):void{
+  this.supplierService.getOne(id)
   .subscribe((supplier:ISupplier)=> this.onSupplierRetrieved(supplier)
   );
 }
@@ -105,7 +107,7 @@ private onSupplierRetrieved(supplier:ISupplier): void{
   this.displayDialog = true;
   this.supplier = supplier;
 
-  if(this.id == 0){
+  if(this.supplier.id == 0){
     this.supplierForm = this.newForm();
     console.log("add");
     this.pageTitle = 'Add Supplier';
@@ -156,14 +158,17 @@ private onSaveComplete():void{
     summary : 'Success Message',
     detail : 'Supplier Sucessfully' + displayMsg
   });
-  // this.router.navigate(['/supplier']);
-  this.refreshList.emit(true);
-  this.displayDialog=false;
-  this.closeDialog.emit(null);
+  this.router.navigate(['/authenticated/supplier']);
+  // this.refreshList.emit(true);
+  // this.displayDialog=false;
+  // this.closeDialog.emit(null);
 }
 
 disable(){
   this.busy = false;
 }
 
+back(){
+  this.router.navigate(['authenticated/supplier']);
+}
 }

@@ -49,12 +49,14 @@ export class TdsListComponent implements OnInit {
     tdsToCreate(){
       this.id=0;
       console.log(this.id);
+      this.router.navigate(['authenticated/tds',this.id]);
       
     }
  
     tdsToEdit(event){
       this.id = event.data.id;
       console.log(this.id);
+      this.router.navigate(['authenticated/tds',this.id]);
       
  
     }
