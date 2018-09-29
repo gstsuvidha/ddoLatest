@@ -67,7 +67,7 @@ export class TdsFormComponent implements OnInit {
 
     this.tdsForm = this.fb.group({
       supplierId: [0, ],
-       placeOfSupply: ['', ],
+       placeOfSupply:  ['', [Validators.required]],
        date:[new Date()],
       amountPaid: [0 ],
       //  customerOpeningDate: [new Date(), [Validators.required]],
