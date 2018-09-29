@@ -87,6 +87,21 @@ namespace DDO.WebApp
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+
+                            app.Use(async (context, next) =>
+                {
+                    if (context.Request.IsHttps)
+                    {
+                        await next();
+                    }
+                    else
+                    {
+                        var withHttps = "https://" + context.Request.Host + context.Request.Path;
+                        context.Response.Redirect(withHttps);
+                    }
+                });
+
+
               app.UseSpaStaticFiles();
             app.UseAuthentication();
             app.UseMvc();

@@ -14,6 +14,7 @@ namespace DDO.Domain.Accounting
         public string Name { get; set; }
         public string Role { get; set; }
         public string BusinessName { get; set; }
+        public string CoDepartment { get; set; }
         public string Subject { get; set; }
         public string GstinPassword { get; set; }
         public string AuthorizedRepresentativeName { get; set; }
@@ -72,11 +73,12 @@ namespace DDO.Domain.Accounting
             //ReceiptNotes=new List<ReceiptNote>();
             //AdvancePaids=new List<AdvancePaid>();
         }
-        public AccountingUnit(string businessName, string role, string placeOfSupply, string gstin, string tdsGstin, string email, string address, string contactNumber,
+        public AccountingUnit(string businessName, string coDepartment, string role, string placeOfSupply, string gstin, string tdsGstin, string email, string address, string contactNumber,
                             string turnOver, string bankAccountName, string bankAccountNumber, string ifscCode, string registrationType,
                             string termsAndCondition,  string currentGrossTurnOver, int selectedYear, string pan)
         {
             BusinessName = businessName;
+            CoDepartment = coDepartment; 
             Role = role;
             PlaceOfSupply = placeOfSupply;
             Gstin = gstin;
@@ -97,7 +99,7 @@ namespace DDO.Domain.Accounting
             Pan = pan;
         }
 
-        public void Modify(string businessName, string placeOfSupply, string gstin, 
+        public void Modify(string businessName, string coDepartment, string placeOfSupply, string gstin, 
                             string tdsGstin, string email, string address, string contactNumber,
                             string turnOver, string bankAccountName, string bankAccountNumber, 
                             string ifscCode, string registrationType,
@@ -106,6 +108,7 @@ namespace DDO.Domain.Accounting
         {
 
             BusinessName = businessName;
+            CoDepartment = coDepartment;
             PlaceOfSupply = placeOfSupply;
             Gstin = gstin;
             TdsGstin = tdsGstin;
