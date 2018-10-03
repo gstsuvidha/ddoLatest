@@ -9,9 +9,9 @@
           [responsive]="true" 
           showEffect="fade" 
           [modal]="true" 
-          [closable]="true" 
-          (onHide) = "this.closeDialog.emit(null)"
-          [width]="500" >
+          [closable]="false" 
+          [width]="500"
+           >
 
   <div class="ui-g">
     
@@ -123,6 +123,7 @@
   <p-footer>
     <div class="ui-dialog-buttonpane ui-helper-clearfix">
         <button type="button" pButton icon="fa fa-fw fa-check" (onclick)="disable()" (click)="saveSupplier()" [disabled]="supplierForm.invalid" label="Save"></button>
+        <button type="button" pButton (click)="back()" label = "Back"></button>
     </div>
 </p-footer>
 

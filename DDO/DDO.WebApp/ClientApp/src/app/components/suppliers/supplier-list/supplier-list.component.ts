@@ -14,7 +14,7 @@ import {Message, LazyLoadEvent} from 'primeng/components/common/api';
 export class SupplierListComponent implements OnInit {
 
   supplierList: ISupplier[];
-  id: number = null;
+  id: number;
   selectedSupplier: ISupplier;
   cols: any[];
   displayDialogDelete : boolean;
@@ -53,13 +53,14 @@ export class SupplierListComponent implements OnInit {
   supplierToCreate() {
     this.id = 0;
     console.log(this.id);
+    this.router.navigate(['authenticated/supplier',this.id]);
     
   }
 
   supplierToEdit(event) {
     this.id = event.data.id;
     console.log(this.id);
-    
+    this.router.navigate(['authenticated/supplier',this.id]);
 
   }
 
