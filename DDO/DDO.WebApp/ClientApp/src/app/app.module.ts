@@ -27,6 +27,7 @@ import { Gstr7Service } from './admin/gstr7.service';
 import { AdminModule } from './admin/admin.module';
 import { TdsPrintComponent } from './components/tds/tds-print/tds-print.component';
 import {KeyFilterModule} from 'primeng/keyfilter';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 export function tokenGetter() {
   return localStorage.getItem("token");
 }
@@ -60,7 +61,7 @@ export function tokenGetter() {
     AdminModule,
     ReactiveFormsModule,
     KeyFilterModule,
-    
+    Ng4LoadingSpinnerModule.forRoot(),
     
     RouterModule.forRoot([
       { path: 'authenticated',
