@@ -26,25 +26,25 @@ export class TdsFormComponent implements OnInit {
     accountingUnitPlaceOfSupply: number;
     printId : number;
 
+   id : number;
+//   private _id: number;
+//   get id(): number{
+//     return this._id;
+//   }
 
-  private _id: number;
-  get id(): number{
-    return this._id;
-  }
+//  @Input()
+//   set id(value: number){
+//       this._id = value;
 
- @Input()
-  set id(value: number){
-      this._id = value;
-
-      if(this._id !=null){
-        console.log(this._id)
-        this.getTds(this._id);
+//       if(this._id != null){
+//         console.log(this._id)
+//         this.getTds(this._id);
         
-      }
-  }
+//       }
+//   }
 
-  @Output() closeDialog:EventEmitter<any> = new EventEmitter<any>();
-  @Output() refreshList:EventEmitter<boolean> = new EventEmitter<boolean>();
+//   @Output() closeDialog:EventEmitter<any> = new EventEmitter<any>();
+//   @Output() refreshList:EventEmitter<boolean> = new EventEmitter<boolean>();
  
   pageTitle;
   tds:Itds;
@@ -68,6 +68,7 @@ export class TdsFormComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.id = params['id'];
+      this.getTds(this.id);
     });
 
     this.tdsForm = this.fb.group({
@@ -79,6 +80,7 @@ export class TdsFormComponent implements OnInit {
        cgstAmount: [0] ,
       sgstAmount: [0],
        igstAmount: [0],
+       reference: [''],
        tdsAmount: [0],
        netAmount: [0,[Validators.required]]
       //  openBalance: [0,Validators.required],
@@ -116,8 +118,8 @@ export class TdsFormComponent implements OnInit {
 }
 
 
-private getTds(this_id):void{
-  this.tdsService.getOne(this.id)
+private getTds(id):void{
+  this.tdsService.getOne(id)
   .subscribe((tds:Itds)=> this.onTdsRetrieved(tds)
   );
 }
@@ -228,7 +230,7 @@ private onTdsRetrieved(tds:Itds): void{
         igstAmount: this.tds.igstAmount,
         tdsAmount: this.tds.tdsAmount,
         netAmount: this.tds.netAmount,
-        
+        reference: this.tds.reference,
 
     
 });
@@ -290,14 +292,16 @@ private onSaveComplete(newId: number):void{
     detail : 'Customer Sucessfully' + displayMsg
   });
   // this.router.navigate(['/customer']);
-  this.refreshList.emit(true);
-  this.displayDialog=false;
+  // this.refreshList.emit(true);
+  // this.displayDialog=false;
   this.router.navigate(['authenticated/tds-print',newId])
-  this.closeDialog.emit(null);
+  // this.closeDialog.emit(null);
   
 }
 
-
+back(){
+  this.router.navigate(['authenticated/tds']);
+}
 
 
 

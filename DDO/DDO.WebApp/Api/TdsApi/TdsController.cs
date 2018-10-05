@@ -72,7 +72,7 @@ namespace DDO.WebApp.Api.SupplierApi
 
 
 
-            var tds = new Tds(model.SupplierId, model.Date, model.PlaceOfSupply, model.AmountPaid,
+            var tds = new Tds(model.SupplierId, model.Date, model.PlaceOfSupply, model.Reference, model.AmountPaid,
                              model.CgstAmount, model.SgstAmount,model.IgstAmount, model.TdsAmount, 
                              model.NetAmount, AccountingUnitId, AdminId);
 
@@ -98,7 +98,7 @@ namespace DDO.WebApp.Api.SupplierApi
                 return NotFound();
             }
 
-            tdsFromDb.Modify(model.SupplierId, model.Date, model.PlaceOfSupply, model.AmountPaid,
+            tdsFromDb.Modify(model.SupplierId, model.Date, model.PlaceOfSupply, model.Reference, model.AmountPaid,
                              model.CgstAmount, model.SgstAmount,model.IgstAmount, model.TdsAmount, 
                                  model.NetAmount, AccountingUnitId);
 

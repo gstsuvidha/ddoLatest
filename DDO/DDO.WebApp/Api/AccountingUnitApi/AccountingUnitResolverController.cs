@@ -94,7 +94,7 @@ namespace DDO.WebApp.Api.AccountingUnitApi
                 return NotFound();
             }
 
-            accountingUnitFromDb.Modify(model.BusinessName, model.PlaceOfSupply, model.Gstin, model.TdsGstin, model.Email, model.Address,
+            accountingUnitFromDb.Modify(model.BusinessName, model.CoDepartment, model.PlaceOfSupply, model.Gstin, model.TdsGstin, model.Email, model.Address,
                                  model.ContactNumber, model.TurnOver,
                                 model.BankAccountName, model.BankAccountNumber, model.IfscCode, model.RegistrationType, model.TermsAndCondition,
                                  model.CurrentGrossTurnOver, model.SelectedYear,model.Pan);

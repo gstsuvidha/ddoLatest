@@ -12,9 +12,10 @@ using System;
 namespace DDO.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180929082940_AlterTableUserProfile")]
+    partial class AlterTableUserProfile
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -153,8 +154,6 @@ namespace DDO.Persistence.Migrations
                     b.Property<double>("NetAmount");
 
                     b.Property<string>("PlaceOfSupply");
-
-                    b.Property<string>("Reference");
 
                     b.Property<double>("SgstAmount");
 

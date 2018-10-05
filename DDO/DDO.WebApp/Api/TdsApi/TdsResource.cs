@@ -11,6 +11,7 @@ namespace DDO.WebApp.Api.SupplierApi
         public DateTime Date { get; set; }
 
         public string PlaceOfSupply { get; set; }
+        public string Reference { get; set; }
 
         public double AmountPaid { get; set; }
         public double NetAmount { get; set; }
