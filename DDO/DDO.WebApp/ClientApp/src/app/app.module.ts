@@ -27,6 +27,7 @@ import { Gstr7Service } from './admin/gstr7.service';
 import { AdminModule } from './admin/admin.module';
 import { TdsPrintComponent } from './components/tds/tds-print/tds-print.component';
 import {KeyFilterModule} from 'primeng/keyfilter';
+import { TdsReportService } from './components/tds/tds-report.service';
 export function tokenGetter() {
   return localStorage.getItem("token");
 }
@@ -114,6 +115,7 @@ export function tokenGetter() {
             LoginService,
           AuthGuardService, 
           Gstr7Service,
+          TdsReportService,
           {
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptor,
