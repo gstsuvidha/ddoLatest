@@ -1,47 +1,55 @@
 
-<p-growl>[(value)]="msgs"></p-growl>
-
+<button type="button" pButton (click)="back()" label = "Back" ></button>
+      
+<br>
 
   
     
-  
-  
-      
   
     
 <form [formGroup]="tdsForm" (ngSubmit)="saveTds()">
-
-  <p-dialog header="{{pageTitle}}" 
-          [(visible)]="displayDialog" 
-          [responsive]="true" 
-          showEffect="fade" 
-          [modal]="true" 
-          [closable]="false" 
-          
-          [width]="500" >
+  <br>
+  <p-fieldset legend="TDS Details">
+  
     <div class="ui-g">
       
 
 
-        <div class="ui-g-5">
-       <label style="margin-top:5px;" for="name" autofocus required>Name</label>
-      </div>
-        <div class="ui-g-7">
-          <p-dropdown [options]="supplierSelectList"  formControlName="supplierId" placeholder="Select" [style]="{'width':'160px'}" filter="true" (onChange)="checkSupplyType($event)">
+      <div class=" ui-g-3">
+        <label style="margin-top:5px;"  for="reference">Reference 
+
+      </label>
+      <br>
+      <small>(e.g. Invoice No, Invoice Date) </small>
+      
+          <input pInputText type="text"  id="reference" formControlName="reference" style="width:160px" onlyNumber="true" >
+</div>
+
+        <div class=" ui-g-3">
+          <div>
+       <label style="margin-top:5px;" for="name" autofocus>Supplier Name  </label>
+       
+       </div>
+       <br>
+        
+       <div>
+       <p-dropdown [options]="supplierSelectList"  formControlName="supplierId" placeholder="Select" [style]="{'width':'160px'}" filter="true" (onChange)="checkSupplyType($event)">
             <ng-template let-option pTemplate="item">
               <div translate>{{option.label}}</div>
             </ng-template>
           </p-dropdown>
-         
+          </div>
                 </div>
 
      
-                <div class="ui-g-5">
-                <label for="date"> Date</label>
-                <br />
+                <div class=" ui-g-3">
+                  <div>
+                <label for="date"> Date Of Payment  </label>
                 </div>
-                <div class="ui-g-7">
+                <br>
+                <div>
                 <p-calendar formControlName="date" [monthNavigator]="true" [yearNavigator]="true" dateFormat="dd/mm/yy" yearRange="2000:2030"></p-calendar>
+              </div>
               </div>
           
         
@@ -52,11 +60,12 @@
 
         
 
-          <div class="ui-g-5">
+          <div class="row ui-g-3">
+            <div>
            <label style="margin-top:5px;" for="placeOfSupply">Place Of Supply</label>
          </div>
-         <div class="ui-g-7">
-
+         <br>
+         <div>
           <p-dropdown [options]="stateList"  formControlName="placeOfSupply" placeholder="Select A State"  [style]="{'width':'160px'}" filter="true" 
           (onChange)="checkSupplyType($event)">
             <ng-template let-option pTemplate="item">
@@ -64,87 +73,73 @@
             </ng-template>
           </p-dropdown>
           </div>
+          </div>
+          </div>
+          <br>
+
+          
  
-          <div class="ui-g-5">
-            <label style="margin-top:5px;"  for="amountPaid">Amount Paid <br>(Exclusive Of GST)</label>
+          <div class="ui-g-3 ">
+            <label style="margin-top:5px;"  for="amountPaid">Amount Paid 
+              <br> </label>
+              <small> (Exclusive Of GST)</small>
             </div>
             <div class="ui-g-7">
-           
-             <input  pKeyFilter="num" class="ng-dirty ng-invalid ng-touched" pInputText type="text" id="amountPaid" formControlName="amountPaid" style="width:160px" onlyNumber="true" >
-            
-            <span>
-                  &nbsp;<p-message severity="error" text="Required" *ngIf="!tdsForm.controls['amountPaid'].valid&&tdsForm.controls['amountPaid'].dirty"></p-message>
-            </span>
-          
-            </div>
+              <input pInputText type="text"  id="amountPaid" formControlName="amountPaid" style="width:160px" onlyNumber="true" >
+    </div>
     
- <div class="ui-g-5">
+ <div class="ui-g-3">
         <label style="margin-top:5px;"  *ngIf="isIntraState"for="cgstAmount">CGST@1%</label>
         </div>
         <div class="ui-g-7">
-          <input   pKeyFilter="num" pInputText type="text" *ngIf="isIntraState" id="cgstAmount" formControlName="cgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
+          <input pInputText type="text" *ngIf="isIntraState" id="cgstAmount" formControlName="cgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
           
         </div>
 
-        <div class="ui-g-5">
+        <div class="ui-g-3">
           <label style="margin-top:5px;" *ngIf="isIntraState" for="sgstAmount">SGST@1%</label>
           </div>
           <div class="ui-g-7">
-            <input pInputText type="text"  pKeyFilter="num"  *ngIf="isIntraState" id="sgstAmount" formControlName="sgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
+            <input pInputText type="text" *ngIf="isIntraState" id="sgstAmount" formControlName="sgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
 </div>
             
-        <div class="ui-g-5">
+        <div class="ui-g-3">
         <label style="margin-top:5px;"  *ngIf="!isIntraState" for="igstAmount">IGST@2%</label>
         </div>
         <div class="ui-g-7">
-          <input pInputText type="text"  pKeyFilter="num" *ngIf="!isIntraState" id="igstAmount" formControlName="igstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
+          <input pInputText type="text" *ngIf="!isIntraState" id="igstAmount" formControlName="igstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
           
         </div>
-        <div class="ui-g-5">
+        <div class="ui-g-3">
         <label style="margin-top:5px;"  for="tdsAmount">Total TDS</label>
         </div>
         <div class="ui-g-7">
-          <input pInputText type="text"  id="tdsAmount" formControlName="tdsAmount" style="width:160px"  pKeyFilter="num" readOnly="true">
+          <input pInputText type="text"  id="tdsAmount" formControlName="tdsAmount" style="width:160px" onlyNumber="true" readOnly="true">
           
         </div>
-  
-        <div class="ui-g-5">
-        <label style="margin-top:5px;"  for="netAmount">Total Net Amount</label>
+      
+        <div class="ui-g-3">
+        <label style="margin-top:5px;"  for="netAmount">Net Amount Paid</label>
         </div>
         <div class="ui-g-7">
-          <input pInputText type="text"  pKeyFilter="num" id="netAmount" formControlName="netAmount" style="width:160px" >
-          <span>
-              &nbsp;<p-message severity="error" text="Required" *ngIf="!tdsForm.controls['netAmount'].valid&&tdsForm.controls['netAmount'].dirty"></p-message>
-        </span>
+          <input pInputText type="text"  id="netAmount" formControlName="netAmount" style="width:160px" onlyNumber="true" >
+          
+        </div> 
+
+        <br>
+        
+
+
+    
+    
+    <div class="ui-g-4 ui-g-offset-4"><br>
+          <button type="button" pButton icon="fa fa-fw fa-check" (click)="saveTds()" (onclick)="disable()" [disabled]="tdsForm.invalid"label="Save and Next"></button>
+              
         </div>
 
-
-        <div class="ui-g-5">
-          <label style="margin-top:5px;"  for="reference">Reference</label>
-          </div>
-          <div class="ui-g-7">
-            <input pInputText type="text"  id="reference" formControlName="reference" style="width:160px"   >
-            
-          </div>
+  <br>
   
 
-
-
-
-
-
-
-    </div>
-    
-    <p-footer>
-      <div class="ui-dialog-buttonpane ui-helper-clearfix">
-          <button type="button" pButton icon="fa fa-fw fa-check" (click)="saveTds()" (onclick)="disable()" [disabled]="tdsForm.invalid"label="Save"></button>
-          <button type="button" pButton (click)="back()" label = "Back"></button>
-      </div>
-     
-     
-  </p-footer>
-
-</p-dialog>
+</p-fieldset>
 </form>
 

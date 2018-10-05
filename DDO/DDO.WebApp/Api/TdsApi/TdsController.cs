@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,10 +40,21 @@ namespace DDO.WebApp.Api.SupplierApi
 
        
        
+       
+       
+       
         [HttpGet]
-        public async Task<IEnumerable<TdsResource>> GetAll()
+
+
+        
+        public async Task<IEnumerable<TdsResource>>  GetAll(int searchMonth,int year)
+        
         {
+              var fromDate = new DateTime(year, searchMonth, 1);
+            var toDate = fromDate.AddMonths(1).AddDays(-1);
+
             var tds = await _database.TdssFor(AccountingUnitId)
+                                    .ForDateRange(fromDate, toDate)
                                     .Include(td=>td.Supplier)
                                     .ToListAsync();
              return _mapper.Map<List<Tds>,List<TdsResource>>(tds.Where(td => td.IsActive).ToList());

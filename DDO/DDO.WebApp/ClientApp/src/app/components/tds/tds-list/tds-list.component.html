@@ -2,7 +2,62 @@
 <p-confirmDialog [(visible)]="displayDialogDelete"></p-confirmDialog>    
 <h3>TDS List</h3>
 <br>
+<br />
+
+<table class="table2 table-condensed">
+    <thead class="row">
+      <tr>
+        <th class="th4" rowspan="2">Total Summary</th>
+        <th class="th3"> Amount Paid</th>
+        <th class="th3">Cgst Amount</th>
+        <th class="th3">Sgst Amount</th>
+        <th class="th3">Igst Amount</th>
+        <th class="th3">Net Amount Paid</th>
+        <th class="th3">Total TDS</th>
+      </tr>
+
+    
+      <tr>
+        <td class="th3">{{tdsReport?.amountPaid | number: '1.2-2'}}</td>
+        <td class="th3">{{tdsReport?.cgstAmount | number: '1.2-2'}}</td>
+        <td class="th3">{{tdsReport?.sgstAmount | number: '1.2-2'}}</td>
+        <td class="th3">{{tdsReport?.igstAmount | number: '1.2-2'}}</td>
+        <td class="th3">{{tdsReport?.netAmount | number: '1.2-2'}}</td>
+        <td class="th3">{{tdsReport?.totalTds | number: '1.2-2'}}</td>
+
+      </tr>
+    </thead>
+  </table>
+
+
 <br>
+
+
+<br />
+<div class="ui-g">
+  <div class="ui-g-9"></div>
+  <div class="ui-g-1">
+    <label style="margin-top:6px;">Year</label>
+  </div>
+  <div class="ui-g-2">
+    <label style="margin-top:6px;">{{yearDisplay}}</label>
+  </div>
+</div>
+
+<div class="ui-g">
+    <div class="ui-g-9"></div>
+    <div class="ui-g-1">
+      <label style="margin-top:6px;">Month</label>
+    </div>
+    <div class="ui-g-2">
+      <p-dropdown [options]="month" [ngModel]="selectedMonth" (ngModelChange)="getTdsForSelectedMonth($event)"  placeholder="Select A Month"  [style]="{'width':'160px'}" filter="true">
+        <ng-template let-option pTemplate="item">
+          <div translate>{{option.label}}</div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+    
+</div>
 
 
 
@@ -20,11 +75,11 @@
   <ng-template pTemplate="header">
     <tr>
       <th style="width:5%">S.No.</th>
-      <th style="width:22%">Supplier Name</th>
-      <th style="width:22%">Place Of Supply</th>
-      <th style="width:22%">Amount Paid</th>
-      <th style="width:22%">TDS</th>
-      <th style="width:5%">PRINT</th>
+      <th style="width:21%">Supplier Name</th>
+      <th style="width:21%">Place Of Supply</th>
+      <th style="width:21%">Amount Paid</th>
+      <th style="width:21%">TDS</th>
+      <th style="width:6%">Print</th>
       <th style="width:5%">Delete</th>
 
     </tr>
@@ -37,10 +92,11 @@
       <td>{{a.amountPaid}}</td>
       <td>{{a.tdsAmount}}</td>
       <td>
-          <button type="button" style="background: #2d8227bf; color:white;" pButton icon="fa fa-fw fa-print" (click)="tdsPrint(a)"></button>
-        </td>
+      <button type="button" style="background: #5cb85c; color:white;" pButton icon="fa fa-fw fa-print" (click)="tdsPrint(a)"></button>
+    </td>
+
       <td>
-        <button type="button" pButton icon="fa fa-fw fa-trash" (click)="showDialogToDelete(a)"></button>
+        <button type="button" pButton icon="fa fa-fw fa-trash" style="background:#d9534f;border:0px solid; color:white;"  (click)="showDialogToDelete(a)"></button>
       </td>
 
     </tr>

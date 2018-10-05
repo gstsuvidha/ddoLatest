@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Itds } from './Itds';
 import { HttpClient } from '@angular/common/http';
 import { ServiceBase } from '../../service-base';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class TdsService extends ServiceBase<Itds>{
@@ -30,7 +31,21 @@ export class TdsService extends ServiceBase<Itds>{
    }
 
    
-}
+   getAllByMonth(monthId:number,year:number):Observable<Itds[]>{
+       
+          
 
+    if(monthId == 1 || monthId ==2 || monthId == 3) //fINANCIAL YEAR CONVERSION
+     year++;  
+    
+    
+    return this.http.get<Itds[]>(`${this.baseUrl}?searchMonth=${monthId}&year=${year}`);
+  
+  }
+  
+  }
+  
+  
+  
 
 
