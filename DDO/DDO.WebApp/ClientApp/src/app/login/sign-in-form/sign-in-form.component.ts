@@ -1,19 +1,20 @@
 
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Event, NavigationStart,NavigationEnd,NavigationCancel,NavigationError} from '@angular/router';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService, ILogin } from '../login.service';
-
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 @Component({
   selector: 'app-sign-in-form',
   templateUrl: './sign-in-form.component.html',
   styleUrls: ['./sign-in-form.component.css']
 })
 export class SignInFormComponent implements OnInit {
-    
   
   constructor(
               private _router: Router,
+              private spinnerService: Ng4LoadingSpinnerService,
               private _activatedRoute: ActivatedRoute,
               private loginService : LoginService) { 
               
@@ -27,6 +28,7 @@ export class SignInFormComponent implements OnInit {
 
 
     doLogin(userName: string, password: string): void {
+        this.spinnerService.show();
         var online= navigator.onLine;
         if(!online){
             
@@ -43,16 +45,16 @@ export class SignInFormComponent implements OnInit {
                 .subscribe(res => {
                     // if (res. === 200)
                         this.onGettingRole();
-                });//,
+                },
+                ()=>this.spinnerService.hide()
+            );
+           
             // error => alert("Failed" + error));
 
 
     }
 
-    // onLoginSuccess(): void {
-    //     this._router.navigate(['authenticated/dashboard_log']);
-
-    // }
+   
 
     onGettingRole() {
        let role = JSON.parse(localStorage.getItem('role'));
