@@ -40,7 +40,7 @@ namespace DDO.WebApp.Api
                             IgstAmount = a.Sum(b=>b.IgstAmount),
                             CgstAmount = a.Sum(b=>b.CgstAmount),
                             SgstAmount = a.Sum(b=>b.SgstAmount),
-                            TdsAmount =  a.Sum(b=>b.TdsAmount),
+                            TdsAmount =  a.Sum(b=>b.AmountPaid),
                             
                             
                         }).ToList();
@@ -66,7 +66,7 @@ namespace DDO.WebApp.Api
                             IgstAmount = a.IgstAmount,
                             CgstAmount = a.CgstAmount,
                             SgstAmount = a.SgstAmount,
-                            TdsAmount =  a.TdsAmount,
+                            TdsAmount =  a.AmountPaid,
                             
                             
                         }).ToList();
