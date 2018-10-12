@@ -1,5 +1,6 @@
 :host ::ng-deep.ui-calendar.ui-calendar-w-btn .ui-inputtext {
     width: 30px !important;
+   
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0 none;
@@ -7,8 +8,23 @@
 :host ::ng-deep.ui-inputtext:enabled:hover:not(.ui-state-error) {
     border-color: #212121;
     width: 160px;
+    height:33px;
 }
 :host ::ng-deep.ui-inputtext {
   /*  border-color: #212121;*/
     width: 160px;
+}
+.card{
+   /* position :absolute !important;
+    margin-left:12%  !important;
+    margin-right: 12%  !important;*/
+    padding-top: 2%;
+    padding-left: 3%;
+    width: fit-content;
+    font-weight: bold;
+    margin-left:31%;
+   /* box-shadow: 2px 0px 3px 0px black;*/
+    margin-top:2% !important;
+    background: #f1f1f1;
+    border-radius: 25px;
 }
