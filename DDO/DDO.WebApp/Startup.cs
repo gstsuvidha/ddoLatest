@@ -82,11 +82,11 @@ namespace DDO.WebApp
             }
 
 
-            // if (env.IsDevelopment())
-            // {
-            //     app.UseDeveloperExceptionPage();
-            // }
-            // app.UseStaticFiles();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            app.UseStaticFiles();
 
             //                 app.Use(async (context, next) =>
             //     {
