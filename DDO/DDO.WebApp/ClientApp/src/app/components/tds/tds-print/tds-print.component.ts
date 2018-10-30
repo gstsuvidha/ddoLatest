@@ -76,7 +76,7 @@ this._router.navigate(['authenticated/tds']);
                  height: 25px !important; 
                  width: 100% !important; 
                  margin: 20px 0 !important; 
-                 background: #222 !important; 
+                 background:#fff !important;
                  text-align: center  !important; 
                  color: black !important; 
                  font-weight:600;
@@ -227,6 +227,15 @@ body {
  margin-right:80px;
  margin-top:10px;
   }
+  .textpower{
+           
+    margin-top: 2vh;
+    float: right !important;
+    font-weight: 600;
+    font-size: 13px;
+    opacity: .70;
+  
+    }
           </style>
         </head>
     <body onload="window.print();window.close()">${printContents}</body>

@@ -109,3 +109,10 @@
         display:inline-block;
         padding-right:4px;
       }
+      .textpower{
+        margin-top: 2vh;
+        float: right;
+        font-weight: 600;
+        font-size: 13px;
+        opacity: .70;
+    }

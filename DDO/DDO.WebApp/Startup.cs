@@ -87,6 +87,7 @@ namespace DDO.WebApp
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+             app.UseSpaStaticFiles();
 
                             app.Use(async (context, next) =>
                 {
@@ -102,7 +103,7 @@ namespace DDO.WebApp
                 });
 
 
-              app.UseSpaStaticFiles();
+             
             app.UseAuthentication();
             app.UseMvc();
 

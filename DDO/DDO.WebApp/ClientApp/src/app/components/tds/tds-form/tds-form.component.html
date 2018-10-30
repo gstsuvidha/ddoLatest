@@ -1,145 +1,150 @@
+<button type="button" pButton (click)="back()" label="Back">
+</button>
 
-<button type="button" pButton (click)="back()" label = "Back" ></button>
-      
 <br>
 
-  
-    
-  
-    
+
+
+
+
 <form [formGroup]="tdsForm" (ngSubmit)="saveTds()">
   <br>
   <p-fieldset legend="TDS Details">
-  
+    <!--top div start-->
     <div class="ui-g">
-      
-
+<!--refrence start-->
+        <div class=" ui-g-3">
+        <label style="margin-top:5px;" for="reference">Reference
+          <small>(e.g. Invoice No, Invoice Date) </small>
+        </label><br>
+        <br>
+        <input pInputText type="text" id="reference" formControlName="reference" style="width:160px;height:33px;" onlyNumber="true">
+      </div>
+      <!--refernce end-->
+      <!--suppler start-->
 
       <div class=" ui-g-3">
-        <label style="margin-top:5px;"  for="reference">Reference 
-
-      </label>
-      <br>
-      <small>(e.g. Invoice No, Invoice Date) </small>
-      
-          <input pInputText type="text"  id="reference" formControlName="reference" style="width:160px" onlyNumber="true" >
-</div>
-
-        <div class=" ui-g-3">
-          <div>
-       <label style="margin-top:5px;" for="name" autofocus>Supplier Name  </label>
-       
-       </div>
-       <br>
-        
-       <div>
-       <p-dropdown [options]="supplierSelectList"  formControlName="supplierId" placeholder="Select" [style]="{'width':'160px'}" filter="true" (onChange)="checkSupplyType($event)">
+        <div> <label style="margin-top:5px;" for="name" autofocus>Supplier Name </label></div><br>
+        <div>
+          <p-dropdown [options]="supplierSelectList" formControlName="supplierId" placeholder="Select" [style]="{'width':'160px','height':'33px'}"
+            filter="true" (onChange)="checkSupplyType($event)">
             <ng-template let-option pTemplate="item">
               <div translate>{{option.label}}</div>
             </ng-template>
           </p-dropdown>
-          </div>
-                </div>
-
-     
-                <div class=" ui-g-3">
-                  <div>
-                <label for="date"> Date Of Payment  </label>
-                </div>
-                <br>
-                <div>
-                <p-calendar formControlName="date" [monthNavigator]="true" [yearNavigator]="true" dateFormat="dd.mm.yy" yearRange="2000:2030"></p-calendar>
-              </div>
-              </div>
-          
-        
-
-
-
-        
-
-        
-
-          <div class="row ui-g-3">
-            <div>
-           <label style="margin-top:5px;" for="placeOfSupply">Place Of Supply</label>
-         </div>
-         <br>
-         <div>
-          <p-dropdown [options]="stateList"  formControlName="placeOfSupply" placeholder="Select A State"  [style]="{'width':'160px'}" filter="true" 
-          (onChange)="checkSupplyType($event)">
-            <ng-template let-option pTemplate="item">
-              <div translate>{{option.label}}</div>
-            </ng-template>
-          </p-dropdown>
-          </div>
-          </div>
-          </div>
-          <br>
-
-          
- 
-          <div class="ui-g-3 ">
-            <label style="margin-top:5px;"  for="amountPaid">Amount Paid 
-              <br> </label>
-              <small> (Exclusive Of GST)</small>
-            </div>
-            <div class="ui-g-7">
-              <input pInputText type="text"  id="amountPaid" formControlName="amountPaid" style="width:160px" onlyNumber="true" >
-    </div>
-    
- <div class="ui-g-3">
-        <label style="margin-top:5px;"  *ngIf="isIntraState"for="cgstAmount">CGST@1%</label>
         </div>
-        <div class="ui-g-7">
-          <input pInputText type="text" *ngIf="isIntraState" id="cgstAmount" formControlName="cgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
-          
+      </div>
+      <!--suppler end-->
+      <!--date start-->
+      <div class=" ui-g-3">
+        <div>
+          <label for="date"> Date Of Payment </label>
         </div>
-
-        <div class="ui-g-3">
-          <label style="margin-top:5px;" *ngIf="isIntraState" for="sgstAmount">SGST@1%</label>
-          </div>
-          <div class="ui-g-7">
-            <input pInputText type="text" *ngIf="isIntraState" id="sgstAmount" formControlName="sgstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
-</div>
-            
-        <div class="ui-g-3">
-        <label style="margin-top:5px;"  *ngIf="!isIntraState" for="igstAmount">IGST@2%</label>
-        </div>
-        <div class="ui-g-7">
-          <input pInputText type="text" *ngIf="!isIntraState" id="igstAmount" formControlName="igstAmount" style="width:160px" onlyNumber="true" readOnly="true" >
-          
-        </div>
-        <div class="ui-g-3">
-        <label style="margin-top:5px;"  for="tdsAmount">Total TDS</label>
-        </div>
-        <div class="ui-g-7">
-          <input pInputText type="text"  id="tdsAmount" formControlName="tdsAmount" style="width:160px" onlyNumber="true" readOnly="true">
-          
-        </div>
-      
-        <div class="ui-g-3">
-        <label style="margin-top:5px;"  for="netAmount">Net Amount Paid</label>
-        </div>
-        <div class="ui-g-7">
-          <input pInputText type="text"  id="netAmount" formControlName="netAmount" style="width:160px" onlyNumber="true" >
-          
-        </div> 
-
         <br>
-        
-
-
-    
-    
-    <div class="ui-g-4 ui-g-offset-4"><br>
-          <button type="button" pButton icon="fa fa-fw fa-check" (click)="saveTds()" (onclick)="disable()" [disabled]="tdsForm.invalid"label="Save and Next"></button>
-              
+        <div>
+          <p-calendar formControlName="date" [monthNavigator]="true" [yearNavigator]="true" dateFormat="dd.mm.yy" yearRange="2000:2030"></p-calendar>
         </div>
+      </div>
+      <!--date end-->
 
-  <br>
-  
+      <!--place start-->
 
-</p-fieldset>
+      <div class="ui-g-3" style="margin-top: -5px;">
+        <div>
+          <label style="margin-top:5px;" for="placeOfSupply">Place Of Supply</label>
+        </div>
+        <br>
+        <div>
+          <p-dropdown [options]="stateList" formControlName="placeOfSupply" placeholder="Select A State" [style]="{'width':'160px','height':'33px'}"
+            filter="true" (onChange)="checkSupplyType($event)">
+            <ng-template let-option pTemplate="item">
+              <div translate>{{option.label}}</div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+      <!--place end-->
+    </div>
+    <!--top table div end-->
+    <br>
+
+<!--card to bottom fileds start-->
+<div class="card">
+  <div class="ui-g">
+    <div class="ui-g-5">
+      <label style="margin-top:5px;" for="amountPaid">Amount Paid
+          <small> (Exclusive Of GST)</small>
+        </label>
+      
+    </div>
+    <div class="ui-g-7">
+      <input pInputText type="text" id="amountPaid" formControlName="amountPaid" style="width:160px" onlyNumber="true">
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-5">
+      <label style="margin-top:5px;" *ngIf="isIntraState" for="cgstAmount">CGST@1%</label>
+    </div>
+    <div class="ui-g-7">
+      <input pInputText type="text" *ngIf="isIntraState" id="cgstAmount" formControlName="cgstAmount" style="width:160px" onlyNumber="true"
+        readOnly="true">
+
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-5">
+      <label style="margin-top:5px;" *ngIf="isIntraState" for="sgstAmount">SGST@1%</label>
+    </div>
+    <div class="ui-g-7">
+      <input pInputText type="text" *ngIf="isIntraState" id="sgstAmount" formControlName="sgstAmount" style="width:160px" onlyNumber="true"
+        readOnly="true">
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-5">
+      <label style="margin-top:5px;" *ngIf="!isIntraState" for="igstAmount">IGST@2%</label>
+    </div>
+    <div class="ui-g-7">
+      <input pInputText type="text" *ngIf="!isIntraState" id="igstAmount" formControlName="igstAmount" style="width:160px" onlyNumber="true"
+        readOnly="true">
+</div>
+    </div>
+
+
+    <div class="ui-g">
+    <div class="ui-g-5">
+      <label style="margin-top:5px;" for="tdsAmount">Total TDS</label>
+    </div>
+    <div class="ui-g-7">
+      <input pInputText type="text" id="tdsAmount" formControlName="tdsAmount" style="width:160px" onlyNumber="true" readOnly="true">
+
+    </div></div>
+
+
+    <div class="ui-g">
+    <div class="ui-g-5">
+      <label style="margin-top:5px;" for="netAmount">Net Amount Paid</label>
+    </div>
+    <div class="ui-g-7">
+      <input pInputText type="text" id="netAmount" formControlName="netAmount" style="width:160px" onlyNumber="true">
+
+    </div>
+</div>
+    <br>
+</div><!--card to bottom fileds start-->
+
+
+
+
+    <div class="ui-g-4 ui-g-offset-5">
+      <br>
+      <button type="button" pButton icon="fa fa-fw fa-check" (click)="saveTds()" (onclick)="disable()" [disabled]="tdsForm.invalid"
+        label="Save and Next"></button>
+        <br>
+    </div>
+
+    <br>
+
+
+  </p-fieldset>
 </form>
-
