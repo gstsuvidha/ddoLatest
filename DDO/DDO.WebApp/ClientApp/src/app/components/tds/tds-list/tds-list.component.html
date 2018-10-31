@@ -62,7 +62,7 @@
 
 
 <p-table #dt [value]="tdsList" [columns]="cols" selectionMode="single"  [(selection)]="selectedTds" 
-(onRowSelect)="tdsToEdit($event)" [paginator]="true" rows="100" >
+(onRowSelect)="tdsToEdit($event)" [paginator]="true" rows="100" [globalFilterFields]="['supplier.name']">
   <ng-template pTemplate="caption">
     <div style="text-align:left">
       <button type="button" pButton icon="fa fa-fw fa-plus" (click)="tdsToCreate()" label="Add"></button>
