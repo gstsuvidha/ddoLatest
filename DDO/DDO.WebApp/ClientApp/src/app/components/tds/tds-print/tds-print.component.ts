@@ -51,7 +51,7 @@ this._router.navigate(['authenticated/tds']);
           
           <style type="text/css" media="print">
           .container{
-            height:620px !important;
+            height:1000px !important;
             width:820px !important;
            
             }
@@ -83,7 +83,7 @@ this._router.navigate(['authenticated/tds']);
                  font: bold 15px !important;
                  font-family: Helvetica, Sans-Serif !important;
                   text-decoration: uppercase !important;
-                  letter-spacing:20px;
+                  letter-spacing:3px;
                    padding: 8px 0px;
             
             }.hdown1
@@ -132,7 +132,9 @@ this._router.navigate(['authenticated/tds']);
             }
           
 
- 
+ .psupdate{
+   padding-left:10px;
+ }
 
  
 .text-left{
@@ -211,7 +213,7 @@ body {
   touch-action: manipulation;}
   .pdate{
    
-    margin-right:49px;
+    margin-right:43px;
   }
   .psup{
     margin-right:14px;
@@ -228,7 +230,7 @@ body {
  margin-top:10px;
   }
   .textpower{
-           
+    display:none !important;     
     margin-top: 2vh;
     float: right !important;
     font-weight: 600;
@@ -236,9 +238,24 @@ body {
     opacity: .70;
   
     }
+    .textpowerp{
+        
+    
+      float: right !important;
+      font-weight: 600;
+      font-size: 13px;
+      opacity: .70;
+    
+      }
           </style>
         </head>
-    <body onload="window.print();window.close()">${printContents}</body>
+    <body onload="window.print();window.close()">${printContents}
+    
+    
+
+  <address class="textpowerp" readonly>Powered By GST Suvidha </address>
+  
+    </body>
       </html>`
     );
     popupWin.document.close();
